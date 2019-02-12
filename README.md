@@ -8,7 +8,6 @@ The project manager is George Perez Marrero.
 
 ## Sprint 0 Documents
 
-* [Intellectual Property Agreement (IPA)](/docs/intellectual-property-agreement.md)
 * [Master Development Plan](/docs/master-development-plan.md)
 
 ### Development Frameworks
