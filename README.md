@@ -8,7 +8,7 @@ The project manager is George Perez Marrero.
 
 ## Sprint 0 Documents
 
-* [Master Development Plan](/docs/master-development-plan.md)
+* [Master Development Plan](https://github.com/mambadb/mambadb/documents/master-development-plan.md)
 
 ### Development Frameworks
 
