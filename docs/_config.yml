@@ -1,0 +1,16 @@
+---
+description: "MambaDB is a state-of-the-art inventory system"
+timezone: America/Puerto_Rico
+markdown: kramdown
+highligther: rouge
+title: MambaDB
+url: https://mambadb.titanpointe.org
+email: support@titanpointe.org
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - Rakefile
+sass:
+    sass_dir: _scss
+    style: compressed
