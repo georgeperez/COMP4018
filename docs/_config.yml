@@ -4,6 +4,7 @@ timezone: America/Puerto_Rico
 markdown: kramdown
 highligther: rouge
 title: MambaDB
+logo: /assets/images/logo.png
 url: https://mambadb.titanpointe.org
 email: support@titanpointe.org
 exclude:
@@ -14,5 +15,4 @@ exclude:
 sass:
     sass_dir: _scss
     style: compressed
-
 theme: jekyll-theme-minimal
