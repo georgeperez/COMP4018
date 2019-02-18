@@ -1,3 +1,3 @@
 # ER Diagram for MamabDB
 
-[![](/media/er-diagram.svg)](/media/er-diagram.svg)
+[![ER Diagram](https://raw.githubusercontent.com/mambadb/mambadb/master/documents/media/er-diagram.svg?sanitize=true)](https://raw.githubusercontent.com/mambadb/mambadb/master/documents/media/er-diagram.svg?sanitize=true)
