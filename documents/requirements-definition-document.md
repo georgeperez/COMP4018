@@ -26,14 +26,15 @@ Operations supported by MambaDB:
 22. Issue receipt - Issues a receipt upon payment recieved
 23. New transaction - Creates a new payment transaction for any order
 24. Costumer feedback - Collects costumer feedback and stores it on the database
-25. Backorders - Creates a list of items whose Stock control number reaches 0
-26. Shipping information - Saves shipping method used and information
-27. RMA - Return items
-28. Add SKU - Adds SKU number to the database
-29. Edit SKU - Edits SKU number of a product on the database
-30. Delete SKU - Deletes an SKU number on the database
-31. Create category - Creates a category for an item or group of items
-32. Edit category - Edits an specified category
-33. Delete category - Deletes a category from databse (products whithin the category are not deleted from database.
-34. Add label - Adds a product label
-35. Delete label - Delets a product label
+25. Customer review - Costumer asigns a rating based on service
+26. Backorders - Creates a list of items whose Stock control number reaches 0
+27. Shipping information - Saves shipping method used and information
+28. RMA - Return items
+29. Add SKU - Adds SKU number to the database
+30. Edit SKU - Edits SKU number of a product on the database
+31. Delete SKU - Deletes an SKU number on the database
+32. Create category - Creates a category for an item or group of items
+33. Edit category - Edits an specified category
+34. Delete category - Deletes a category from databse (products whithin the category are not deleted from database.
+35. Add label - Adds a product label
+36. Delete label - Delets a product label
