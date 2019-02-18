@@ -12,5 +12,6 @@ Administration stuff: Always create a new branch when making code changes. When 
 
 * [ER Diagram](/documents/er-diagram.md)
 * [Development Frameworks](/documents/development-frameworks.md)
+* [Requirements Definition Document](/documents/requirements-definition-document.md)
 * [Intellectual Property Agreement](/documents/intellectual-property-agreement.md)
 * [Master Development Plan](/documents/master-development-plan.md)
