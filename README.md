@@ -6,13 +6,10 @@ This project is being developed by George Perez Marrero and Carlos L. Malave.
 
 The project manager is George Perez Marrero.
 
+Administration stuff: Always create a new branch when making code changes. When pushing your changes, open a Pull Request early and make it a draft Pull Request. When all changes are done, assign a reviewer.
+
 ## Sprint 0 Documents
 
-* [Master Development Plan](https://github.com/mambadb/mambadb/documents/master-development-plan.md)
-
-### Development Frameworks
-
-* [AngularJS](https://angularjs.org/)
-* [Flask](http://flask.pocoo.org)
-* [Ionic](https://ionicframework.com)
-* [MySQL](https://github.com/mysql/mysql-server)
+* [Development Frameworks](/documents/development-frameworks.md)
+* [Intellectual Property Agreement](/documents/intellectual-property-agreement.md)
+* [Master Development Plan](/documents/master-development-plan.md)
