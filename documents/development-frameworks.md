@@ -2,7 +2,7 @@
 
 Our selected development frameworks are:
 
-* Angular
+* Angular and Vue
 * Ionic
 * Flask
 * MySQL
