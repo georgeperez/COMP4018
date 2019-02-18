@@ -1,6 +1,6 @@
-# Welcome to Mamba Database Systems
+# Mamba Database Systems
 
-Mamba Database Systems makes MambaDB, a state-of-the-art inventory system for small to medium sized businesses that have a vast product inventory that they want to keep track of for quality-of-service reasons.
+Mamba Database Systems (Team Name) makes MambaDB, a state-of-the-art order inventory system for small to medium sized businesses. Update, remove, edit orders, add new products, add suppliers, and more.
 
 This project is being developed by George Perez Marrero and Carlos L. Malave.
 
