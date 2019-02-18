@@ -4,7 +4,7 @@ The project's development plan is being scheduled, monitored with a Kanban board
 
 ## General Project Plan
 
-Our general development plan is to finish the architectural needs of our selected development frameworks. Then prepare environment for app sketching leading us to implementation phase of the General Project Plan.
+Our general development plan is to finish the architectural needs of our selected development frameworks. Then, prepare environment for app sketching leading us to implementation phase of the General Project Plan.
 
 ## Detailed Project Plan
 
