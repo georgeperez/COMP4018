@@ -10,6 +10,7 @@ email: support@titanpointe.org
 exclude:
   - Gemfile
   - Gemfile.lock
+  - README.md
   - vendor
   - Rakefile
 sass:
