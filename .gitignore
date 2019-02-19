@@ -39,6 +39,10 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# IDE
+
+.vscode
+
 # Vagrant files
 .vagrant/
 
