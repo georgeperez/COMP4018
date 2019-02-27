@@ -2,15 +2,11 @@ import os
 from flask import Flask, render_template, jsonify
 from flask_cors import CORS
 from flaskext.mysql import MySQL
-from random import *
 
 app = Flask(__name__,
-            static_folder = "../dist/static",
-            template_folder = "../dist")
+            static_folder = "../../dist/static",
+            template_folder = "../../dist")
 CORS(app)
-
-mysql = MySQL()
-mysql.init_app(app)
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
