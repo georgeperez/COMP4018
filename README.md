@@ -6,12 +6,14 @@ This project is being developed by George Perez Marrero and Carlos L. Malave.
 
 The project manager is George Perez Marrero.
 
-Administration stuff: Always create a new branch when making code changes. When pushing your changes, open a Pull Request early and make it a draft Pull Request. When all changes are done, assign a reviewer.
+## Sprint 1 Documents
+
+* _WIP_
 
 ## Sprint 0 Documents
 
-* [ER Diagram](/documents/er-diagram.md)
-* [Development Frameworks](/documents/development-frameworks.md)
-* [Requirements Definition Document](/documents/requirements-definition-document.md)
-* [Intellectual Property Agreement](/documents/intellectual-property-agreement.md)
-* [Master Development Plan](/documents/master-development-plan.md)
+* [ER Diagram](/documents/sprint-0/er-diagram.md)
+* [Development Frameworks](/documents/sprint-0/development-frameworks.md)
+* [Requirements Definition Document](/documents/sprint-0/requirements-definition-document.md)
+* [Intellectual Property Agreement](/documents/sprint-0/intellectual-property-agreement.md)
+* [Master Development Plan](/documents/sprint-0/master-development-plan.md)
