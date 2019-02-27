@@ -1,10 +1,10 @@
 # Mamba Database Systems
 
-Mamba Database Systems (Team Name) makes MambaDB, a state-of-the-art order inventory system for small to medium sized businesses. Update, remove, edit orders, add new products, add suppliers, and more.
+Mamba Database Systems makes MambaDB, a state-of-the-art order inventory system for small to medium sized businesses. Update, remove, edit orders, add new products, add suppliers, and more.
 
-This project is being developed by George Perez Marrero and Carlos L. Malave.
+This project is being developed by George P&eacute;rez Marrero and Carlos L. Malav&eacute; Solares.
 
-The project manager is George Perez Marrero.
+The project manager is George P&eacute;rez Marrero.
 
 ## Sprint 1 Documents
 
