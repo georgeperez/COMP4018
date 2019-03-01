@@ -17,3 +17,4 @@ The project manager is George P&eacute;rez Marrero.
 * [Requirements Definition Document](/documents/sprint-0/requirements-definition-document.md)
 * [Intellectual Property Agreement](/documents/sprint-0/intellectual-property-agreement.md)
 * [Master Development Plan](/documents/sprint-0/master-development-plan.md)
+* [Master Development Plan](/documents/sprint-1/master-development-plan.md)
