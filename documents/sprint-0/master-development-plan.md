@@ -1,6 +1,6 @@
 # Master Development Plan
 
-The project's development plan is being scheduled, monitored with a Kanban board integrated to the GitHub service. To see the development plans, please see the [Projects](https://github.com/mambadb/mambadb/projects/) section.
+The project's development plan is being scheduled, monitored with a Kanban board integrated to the GitHub service. To see the development plans, please see the [Issues](https://github.com/mambadb/mambadb/issues/) to see how work is being assigned and worked on.
 
 ## General Project Plan
 
