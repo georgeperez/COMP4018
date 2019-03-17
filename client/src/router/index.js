@@ -8,14 +8,14 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
-      path: '/books',
-      name: 'Books',
-      component: Books,
-    },
-    {
       path: '/ping',
       name: 'Ping',
       component: Ping,
+    },
+    {
+      path: '/books',
+      name: 'Books',
+      component: Books,
     },
   ],
   mode: 'history',
