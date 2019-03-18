@@ -1,22 +1,32 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Ping from '@/components/Ping';
-import Books from '@/components/Books';
+import Customers from '@/components/Customers';
+import Businesses from '@/components/Businesses';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/ping',
-      name: 'Ping',
-      component: Ping,
+      path: '/customers',
+      name: 'Customers',
+      component: Customers,
     },
     {
-      path: '/books',
-      name: 'Books',
-      component: Books,
+      path: '/businesses',
+      name: 'Businesses',
+      component: Businesses,
     },
+    {
+      path: '/orders',
+      name: 'Orders',
+      component: Orders,
+    },
+    {
+      path: '/products',
+      name: 'Products',
+      component: Products,
+    }
   ],
   mode: 'history',
 });
