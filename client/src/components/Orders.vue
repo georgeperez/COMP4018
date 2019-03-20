@@ -6,7 +6,8 @@
         <hr>
         <br>
         <br>
-        <button type="button" class="btn btn-success btn-sm" v-b-modal.orders-modal>Add Order</button>
+        <button type="button" class="btn btn-success btn-sm"
+        v-b-modal.order-modal>Add Order</button>
         <br>
         <br>
         <table class="table table-hover">
@@ -27,19 +28,19 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(orders, index) in orders" :key="index">
-              <td>{{ orders.ordernumber }}</td>
-              <td>{{ orders.customerid }}</td>
-              <td>{{ orders.to_street }}</td>
-              <td>{{ orders.to_city }}</td>
-              <td>{{ orders.to_state }}</td>
-              <td>{{ orders.to_zipcode }}</td>
-              <td>{{ orders.telephone }}</td>
-              <td>{{ orders.orderdate }}</td>
-              <td>{{ orders.shipdate }}</td>
-              <td>{{ orders.returndate }}</td>
-              <td>{{ orders.ordertotal }}</td>
-              <td>{{ orders.productid }}</td>
+            <tr v-for="(order, index) in orders" :key="index">
+              <td>{{ order.ordernumber }}</td>
+              <td>{{ order.customerid }}</td>
+              <td>{{ order.to_street }}</td>
+              <td>{{ order.to_city }}</td>
+              <td>{{ order.to_state }}</td>
+              <td>{{ order.to_zipcode }}</td>
+              <td>{{ order.telephone }}</td>
+              <td>{{ order.orderdate }}</td>
+              <td>{{ order.shipdate }}</td>
+              <td>{{ order.returndate }}</td>
+              <td>{{ order.ordertotal }}</td>
+              <td>{{ order.productid }}</td>
               <td>
                 <button type="button" class="btn btn-warning btn-sm">Update</button>
                 <button type="button" class="btn btn-danger btn-sm">Delete</button>
@@ -49,22 +50,23 @@
         </table>
       </div>
     </div>
-    <b-modal ref="addOrdersModal" id="orders-modal" title="Add a new order" hide-footer>
+    <b-modal ref="addOrderModal" id="order-modal" title="Add a new order" hide-footer>
       <b-form @submit="onSubmit" @reset="onReset" class="w-100">
         <b-form-group id="form-ordernumber-group" label="Name:" label-for="form-ordernumber-input">
           <b-form-input
             id="form-ordernumber-input"
             type="text"
-            v-model="addOrdersForm.ordernumber"
+            v-model="addOrderForm.ordernumber"
             required
             placeholder="Enter Order Number"
           ></b-form-input>
         </b-form-group>
-        <b-form-group id="form-customerid-group" label="Customer ID:" label-for="form-customerid-input">
+        <b-form-group id="form-customerid-group" label="Customer ID:"
+        label-for="form-customerid-input">
           <b-form-input
             id="form-customerid-input"
             type="text"
-            v-model="addOrdersForm.customerid"
+            v-model="addOrderForm.customerid"
             required
             placeholder="Enter Customer ID"
           ></b-form-input>
@@ -73,7 +75,7 @@
           <b-form-input
             id="form-tostreet-input"
             type="text"
-            v-model="addOrdersForm.to_street"
+            v-model="addOrderForm.to_street"
             required
             placeholder="Enter to street"
           ></b-form-input>
@@ -82,7 +84,7 @@
           <b-form-input
             id="form-tocity-input"
             type="text"
-            v-model="addOrdersForm.to_city"
+            v-model="addOrderForm.to_city"
             required
             placeholder="Enter to city"
           ></b-form-input>
@@ -91,16 +93,17 @@
           <b-form-input
             id="form-tostate-input"
             type="text"
-            v-model="addOrdersForm.to_state"
+            v-model="addOrderForm.to_state"
             required
             placeholder="Enter to state"
           ></b-form-input>
         </b-form-group>
-        <b-form-group id="form-tozipcode-group" label="To ZIP Code:" label-for="form-tozipcode-input">
+        <b-form-group id="form-tozipcode-group" label="To ZIP Code:"
+        label-for="form-tozipcode-input">
           <b-form-input
             id="form-tozipcode-input"
             type="text"
-            v-model="addOrdersForm.to_zipcode"
+            v-model="addOrderForm.to_zipcode"
             required
             placeholder="Enter to ZIP code"
           ></b-form-input>
@@ -109,16 +112,17 @@
           <b-form-input
             id="form-telephone-input"
             type="text"
-            v-model="addOrdersForm.telephone"
+            v-model="addOrderForm.telephone"
             required
             placeholder="Enter telephone"
           ></b-form-input>
         </b-form-group>
-        <b-form-group id="form-orderdate-group" label="Order Date:" label-for="form-orderdate-input">
+        <b-form-group id="form-orderdate-group" label="Order Date:"
+        label-for="form-orderdate-input">
           <b-form-input
             id="form-orderdate-input"
             type="text"
-            v-model="addOrdersForm.orderdate"
+            v-model="addOrderForm.orderdate"
             required
             placeholder="Order date"
           ></b-form-input>
@@ -127,32 +131,35 @@
           <b-form-input
             id="form-shipdate-input"
             type="text"
-            v-model="addOrdersForm.shipdate"
+            v-model="addOrderForm.shipdate"
             placeholder="Ship Date"
           ></b-form-input>
         </b-form-group>
-        <b-form-group id="form-returndate-group" label="Return Date:" label-for="form-returndate-input">
+        <b-form-group id="form-returndate-group" label="Return Date:"
+        label-for="form-returndate-input">
           <b-form-input
             id="form-returndate-input"
             type="text"
-            v-model="addOrdersForm.returndate"
+            v-model="addOrderForm.returndate"
             placeholder="Return Date"
           ></b-form-input>
         </b-form-group>
-        <b-form-group id="form-ordertotal-group" label="Order Total:" label-for="form-ordertotal-input">
+        <b-form-group id="form-ordertotal-group" label="Order Total:"
+        label-for="form-ordertotal-input">
           <b-form-input
             id="form-ordertotal-input"
             type="text"
-            v-model="addOrdersForm.ordertotal"
+            v-model="addOrderForm.ordertotal"
             required
             placeholder="Order Total"
           ></b-form-input>
         </b-form-group>
-        <b-form-group id="form-productid-group" label="Product id:" label-for="form-productid-input">
+        <b-form-group id="form-productid-group" label="Product id:"
+        label-for="form-productid-input">
           <b-form-input
             id="form-productid-input"
             type="text"
-            v-model="addOrdersForm.productid"
+            v-model="addOrderForm.productid"
             required
             placeholder="Product id"
           ></b-form-input>
@@ -171,25 +178,25 @@ export default {
   data() {
     return {
       orders: [],
-      addOrdersForm: {
+      addOrderForm: {
         ordernumber: '',
         customerid: '',
         to_street: '',
         to_city: '',
-        to_state:'',
-        to_zipcode:'',
-        telephone:'',
-        orderdate:'',
-        shipdate:'',
-        returndate:'',
-        ordertotal:'',
-        productid:'',
+        to_state: '',
+        to_zipcode: '',
+        telephone: '',
+        orderdate: '',
+        shipdate: '',
+        returndate: '',
+        ordertotal: '',
+        productid: '',
       },
     };
   },
   methods: {
     getOrders() {
-      const path = 'http://localhost:5000/orders';
+      const path = 'http://157.230.91.175:5000/orders';
       axios.get(path)
         .then((res) => {
           this.orders = res.data.orders;
@@ -199,8 +206,8 @@ export default {
           console.error(error);
         });
     },
-    addOrdersForm(payload) {
-      const path = 'http://localhost:5000/orders';
+    addOrder(payload) {
+      const path = 'http://157.230.91.175:5000/orders';
       axios.post(path, payload)
         .then(() => {
           this.getOrders();
@@ -212,42 +219,42 @@ export default {
         });
     },
     initForm() {
-      this.addOrdersForm.ordernumber = '';
-      this.addOrdersForm.customerid = '';
-      this.addOrdersForm.to_street = '';
-      this.addOrdersForm.to_city = '';
-      this.addOrdersForm.to_state = '';
-      this.addOrdersForm.to_zipcode = '';
-      this.addOrdersForm.telephone = '';
-      this.addOrdersForm.orderdate = '';
-      this.addOrdersForm.shipdate = '';
-      this.addOrdersForm.returndate = '';
-      this.addOrdersForm.ordertotal = '';
-      this.addOrdersForm.productid = '';
+      this.addOrderForm.ordernumber = '';
+      this.addOrderForm.customerid = '';
+      this.addOrderForm.to_street = '';
+      this.addOrderForm.to_city = '';
+      this.addOrderForm.to_state = '';
+      this.addOrderForm.to_zipcode = '';
+      this.addOrderForm.telephone = '';
+      this.addOrderForm.orderdate = '';
+      this.addOrderForm.shipdate = '';
+      this.addOrderForm.returndate = '';
+      this.addOrderForm.ordertotal = '';
+      this.addOrderForm.productid = '';
     },
     onSubmit(evt) {
       evt.preventDefault();
-      this.$refs.addOrdersModal.hide();
+      this.$refs.addOrderModal.hide();
       const payload = {
-        ordernumber: this.addOrdersForm.ordernumber,
-        customerid: this.addOrdersForm.customerid,
-        to_street: this.addOrdersForm.to_street,
-        to_city: this.addOrdersForm.to_city,
-        to_state: this.addOrdersForm.to_state,
-        to_zipcode: this.addOrdersForm.to_zipcode,
-        telephone: this.addOrdersForm.telephone,
-        orderdate: this.addOrdersForm.orderdate,
-        shipdate: this.addOrdersForm.shipdate,
-        returndate: this.addOrdersForm.returndate,
-        ordertotal: this.addOrdersForm.ordertotal,
-        productid: this.addOrdersForm.productid,
+        ordernumber: this.addOrderForm.ordernumber,
+        customerid: this.addOrderForm.customerid,
+        to_street: this.addOrderForm.to_street,
+        to_city: this.addOrderForm.to_city,
+        to_state: this.addOrderForm.to_state,
+        to_zipcode: this.addOrderForm.to_zipcode,
+        telephone: this.addOrderForm.telephone,
+        orderdate: this.addOrderForm.orderdate,
+        shipdate: this.addOrderForm.shipdate,
+        returndate: this.addOrderForm.returndate,
+        ordertotal: this.addOrderForm.ordertotal,
+        productid: this.addOrderForm.productid,
       };
-      this.addOrdersForm(payload);
+      this.addOrder(payload);
       this.initForm();
     },
     onReset(evt) {
       evt.preventDefault();
-      this.$refs.addOrdersModal.hide();
+      this.$refs.addOrderModal.hide();
       this.initForm();
     },
   },

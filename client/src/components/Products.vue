@@ -6,7 +6,8 @@
         <hr>
         <br>
         <br>
-        <button type="button" class="btn btn-success btn-sm" v-b-modal.product-modal>Add Product</button>
+        <button type="button" class="btn btn-success btn-sm"
+        v-b-modal.product-modal>Add Product</button>
         <br>
         <br>
         <table class="table table-hover">
@@ -58,7 +59,8 @@
             placeholder="Enter product ID"
           ></b-form-input>
         </b-form-group>
-        <b-form-group id="form-productlabel-group" label="Label:" label-for="form-productlabel-input">
+        <b-form-group id="form-productlabel-group" label="Label:"
+        label-for="form-productlabel-input">
           <b-form-input
             id="form-productlabel-input"
             type="text"
@@ -67,7 +69,8 @@
             placeholder="Enter label"
           ></b-form-input>
         </b-form-group>
-        <b-form-group id="form-productcategory-group" label="Category:" label-for="form-productcategory-input">
+        <b-form-group id="form-productcategory-group" label="Category:"
+        label-for="form-productcategory-input">
           <b-form-input
             id="form-productcategory-input"
             type="text"
@@ -85,7 +88,8 @@
             placeholder="Enter quantity"
           ></b-form-input>
         </b-form-group>
-        <b-form-group id="form-businessname-group" label="Business Name:" label-for="form-businessname-input">
+        <b-form-group id="form-businessname-group" label="Business Name:"
+        label-for="form-businessname-input">
           <b-form-input
             id="form-businessname-input"
             type="text"
@@ -94,7 +98,8 @@
             placeholder="Enter business name"
           ></b-form-input>
         </b-form-group>
-        <b-form-group id="form-manufacturer-group" label="Manufacturer:" label-for="form-manufacturer-input">
+        <b-form-group id="form-manufacturer-group" label="Manufacturer:"
+        label-for="form-manufacturer-input">
           <b-form-input
             id="form-manufacturer-input"
             type="text"
@@ -103,7 +108,8 @@
             placeholder="Enter manufacturer"
           ></b-form-input>
         </b-form-group>
-        <b-form-group id="form-modelnumber-group" label="Model Number:" label-for="form-modelnumber-input">
+        <b-form-group id="form-modelnumber-group" label="Model Number:"
+        label-for="form-modelnumber-input">
           <b-form-input
             id="form-modelnumber-input"
             type="text"
@@ -112,7 +118,8 @@
             placeholder="Enter model number"
           ></b-form-input>
         </b-form-group>
-        <b-form-group id="form-serialnumber-group" label="Type:" label-for="form-serialnumber-input">
+        <b-form-group id="form-serialnumber-group" label="Type:"
+        label-for="form-serialnumber-input">
           <b-form-input
             id="form-serialnumber-input"
             type="text"
@@ -130,7 +137,7 @@
             placeholder="Enter SKU"
           ></b-form-input>
         </b-form-group>
-        <b-form-group id="form-buyprice-group" label="SKU:" label-for="form-buyprice-input">
+        <b-form-group id="form-buyprice-group" label="Buy Price:" label-for="form-buyprice-input">
           <b-form-input
             id="form-buyprice-input"
             type="text"
@@ -167,19 +174,19 @@ export default {
         productlabel: '',
         productcategory: '',
         quantity: '',
-        businessname:'',
-        manufacturer:'',
-        modelnumber:'',
-        serialnumber:'',
-        sku:'',
-        buyprice:'',
-        msrp:'',
+        businessname: '',
+        manufacturer: '',
+        modelnumber: '',
+        serialnumber: '',
+        sku: '',
+        buyprice: '',
+        msrp: '',
       },
     };
   },
   methods: {
     getProducts() {
-      const path = 'http://localhost:5000/products';
+      const path = 'http://157.230.91.175:5000/products';
       axios.get(path)
         .then((res) => {
           this.products = res.data.products;
@@ -189,8 +196,8 @@ export default {
           console.error(error);
         });
     },
-    addBusiness(payload) {
-      const path = 'http://localhost:5000/products';
+    addProduct(payload) {
+      const path = 'http://157.230.91.175:5000/products';
       axios.post(path, payload)
         .then(() => {
           this.getProducts();
@@ -215,7 +222,7 @@ export default {
     },
     onSubmit(evt) {
       evt.preventDefault();
-      this.$refs.addBusinessModal.hide();
+      this.$refs.addProductModal.hide();
       const payload = {
         productid: this.addProductForm.productid,
         productlabel: this.addProductForm.productlabel,

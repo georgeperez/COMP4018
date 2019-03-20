@@ -6,7 +6,8 @@
         <hr>
         <br>
         <br>
-        <button type="button" class="btn btn-success btn-sm" v-b-modal.business-modal>Add Business</button>
+        <button type="button" class="btn btn-success btn-sm"
+        v-b-modal.business-modal>Add Business</button>
         <br>
         <br>
         <table class="table table-hover">
@@ -43,7 +44,8 @@
     </div>
     <b-modal ref="addBusinessModal" id="business-modal" title="Add a new business" hide-footer>
       <b-form @submit="onSubmit" @reset="onReset" class="w-100">
-        <b-form-group id="form-businessname-group" label="Name:" label-for="form-businessname-input">
+        <b-form-group id="form-businessname-group" label="Name:"
+        label-for="form-businessname-input">
           <b-form-input
             id="form-businessname-input"
             type="text"
@@ -115,7 +117,8 @@
             placeholder="Enter business type"
           ></b-form-input>
         </b-form-group>
-        <b-form-group id="form-numbercustomers-group" label="Number customers:" label-for="form-numbercustomers-input">
+        <b-form-group id="form-numbercustomers-group" label="Number customers:"
+        label-for="form-numbercustomers-input">
           <b-form-input
             id="form-numbercustomers-input"
             type="text"
@@ -143,16 +146,16 @@ export default {
         duns: '',
         street: '',
         city: '',
-        state:'',
-        zipcode:'',
-        type:'',
-        numbercustomers:'',
+        state: '',
+        zipcode: '',
+        type: '',
+        numbercustomers: '',
       },
     };
   },
   methods: {
     getBusinesses() {
-      const path = 'http://localhost:5000/businesses';
+      const path = 'http://157.230.91.175:5000/businesses';
       axios.get(path)
         .then((res) => {
           this.businesses = res.data.businesses;
@@ -163,7 +166,7 @@ export default {
         });
     },
     addBusiness(payload) {
-      const path = 'http://localhost:5000/businesses';
+      const path = 'http://157.230.91.175:5000/businesses';
       axios.post(path, payload)
         .then(() => {
           this.getBusinesses();
