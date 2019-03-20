@@ -12,6 +12,8 @@ flask-restful = "*"
 cryptography = "*"
 flask-mysql = "*"
 pymysql = "*"
+mysql-python = "*"
+mysql-connector-python = "*"
 
 [requires]
 python_version = "3.7"
