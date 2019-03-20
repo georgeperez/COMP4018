@@ -202,7 +202,7 @@ def all_businesses():
         })
         response_object['message'] = 'Business added!'
     else:
-        response_object['business'] = BUSINESS
+        response_object['businesses'] = BUSINESS
     return jsonify(response_object)
 
 @app.route('/products', methods=['GET', 'POST', 'DELETE'])
