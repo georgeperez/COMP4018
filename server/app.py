@@ -1,176 +1,40 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, make_response
 from flask_cors import CORS
+from flask_restful import reqparse
+import uuid
 
-
-# configuration
 DEBUG = True
-
-# instantiate the app
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-# enable CORS
 CORS(app)
 
-CUSTOMERS = [
-    {
-        'customerid': 1000,
-        'firstname': 'George',
-        'lastname': 'Perez',
-        'street': '3022 Calle Ibiza',
-        'city': 'Cabo Rojo',
-        'state': 'PR',
-        'zipcode': '00623-8962',
-        'telephone': 7874210026
-    },
-    {
-        'customerid': 1001,
-        'firstname': 'Steve',
-        'lastname': 'Jobs',
-        'street': '1 Infinite Loop',
-        'city': 'Cupertino',
-        'state': 'CA',
-        'zipcode': '95014',
-        'telephone': 4089961010
-    },
-    {
-        'customerid': 1002,
-        'firstname': 'Carlos',
-        'lastname': 'Malave',
-        'street': 'PR-109',
-        'city': 'Anasco',
-        'state': 'PR',
-        'zipcode': '00610',
-        'telephone': 7875555555
-    },
-    {
-        'customerid': 1003,
-        'firstname': 'Barack',
-        'lastname': 'Obama',
-        'street': '1600 Pennssylvania Avenue NW',
-        'city': 'Washington, DC',
-        'state': '',
-        'zipcode': '200003',
-        'telephone': 5555555555
-    }
-]
+CUSTOMERS = []
 
-BUSINESS = [
-    {
-        'businessname': 'TITANPOINTE',
-        'duns': '123-123-1231',
-        'street': '3022 Calle Ibiza',
-        'city': 'Cabo Rojo',
-        'state': 'PR',
-        'zipcode': '00623-8962',
-        'telephone': 7874210026,
-        'type': 'type',
-        'numbercustomers': 42
-    },
-    {
-        'businessname': 'Apple Inc.',
-        'duns': '123-123-1232',
-        'street': '1 Infinite Loop',
-        'city': 'Cupertino',
-        'state': 'CA',
-        'zipcode': '95014',
-        'telephone': 4089961010,
-        'type': 'type',
-        'numbercustomers': 42
-    },
-    {
-        'businessname': 'Floral Bouquet',
-        'duns': '123-123-1233',
-        'street': 'PR-109',
-        'city': 'Anasco',
-        'state': 'PR',
-        'zipcode': '00610',
-        'telephone': 7875555555,
-        'type': 'type',
-        'numbercustomers': 42
-    },
-    {
-        'businessname': 'The Executive Branch of the United States of America',
-        'duns': '123-123-1234',
-        'street': '1600 Pennssylvania Avenue NW',
-        'city': 'Washington, DC',
-        'state': '',
-        'zipcode': '200003',
-        'telephone': 5555555555,
-        'type': 'type',
-        'numbercustomers': 42
-    }
-]
+BUSINESSES = []
 
 PRODUCTS = []
 
-ORDERS = [
-    {
-        'ordernumber': 'ON-1000',
-        'customerid': '1000',
-        'to_street': '3022 Calle Ibiza',
-        'to_city': 'Cabo Rojo',
-        'to_state': 'PR',
-        'to_zipcode': '00623-8962',
-        'telephone': 7874210026,
-        'orderdate': '2018-03-01',
-        'shipdate': '2018-03-02',
-        'returndate': '',
-        'ordertotal': 123.42,
-        'productid': 'P000001'
-    },
-    {
-        'ordernumber': 'ON-1001',
-        'customerid': '1001',
-        'to_street': '1 Infinite Loop',
-        'to_city': 'Cupertino',
-        'to_state': 'CA',
-        'to_zipcode': '95014',
-        'telephone': 4089961010,
-        'orderdate': '2018-03-01',
-        'shipdate': '2018-03-02',
-        'returndate': '',
-        'ordertotal': 123.42,
-        'productid': 'P000002'
-    },
-    {
-        'ordernumber': 'ON-1002',
-        'customerid': '1002',
-        'to_street': 'PR-109',
-        'to_city': 'Anasco',
-        'to_state': 'PR',
-        'to_zipcode': '00610',
-        'telephone': 7875555555,
-        'orderdate': '2018-03-01',
-        'shipdate': '2018-03-02',
-        'returndate': '',
-        'ordertotal': 123.42,
-        'productid': 'P000003'
-    },
-    {
-        'ordernumber': 'ON-1003',
-        'customerid': '1003',
-        'to_street': '1600 Pennssylvania Avenue NW',
-        'to_city': 'Washington, DC',
-        'to_state': '',
-        'to_zipcode': '200003',
-        'telephone': 5555555555,
-        'orderdate': '2018-03-01',
-        'shipdate': '2018-03-02',
-        'returndate': '',
-        'ordertotal': 123.42,
-        'productid': 'P000004'
-    }
-]
+ORDERS = []
 
+def remove_customer(customer_id):
+    for customer in CUSTOMERS:
+        if customer['customerid'] == customer_id:
+            CUSTOMERS.remove(customer)
+            return True
+    return False
 
-@app.route('/customers', methods=['GET', 'POST', 'DELETE'])
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({'error': 'Not found'}), 404)
+
+@app.route('/customers', methods=['GET', 'POST'])
 def all_customers():
     response_object = {'status': 'success'}
     if request.method == 'POST':
         post_data = request.get_json()
         CUSTOMERS.append({
-            'customerid': post_data.get('customerid'),
+            'customerid': uuid.uuid4().hex,
             'firstname': post_data.get('firstname'),
             'lastname': post_data.get('lastname'),
             'street': post_data.get('street'),
@@ -184,12 +48,34 @@ def all_customers():
         response_object['customers'] = CUSTOMERS
     return jsonify(response_object)
 
-@app.route('/businesses', methods=['GET', 'POST', 'DELETE'])
+@app.route('/customers/<customer_id>', methods=['PUT', 'DELETE'])
+def update_customer():
+    response_object = {'status': 'success'}
+    if request.method == 'PUT':
+        post_data = request.get_json()
+        remove_customer(customer_id)
+        CUSTOMERS.append({
+            'customerid': uuid.uuid4().hex,
+            'firstname': post_data.get('firstname'),
+            'lastname': post_data.get('lastname'),
+            'street': post_data.get('street'),
+            'city': post_data.get('city'),
+            'state': post_data.get('state'),
+            'zipcode': post_data.get('zipcode'),
+            'telephone': post_data.get('telephone')
+        })
+        response_object['message'] = 'Customer updated!'
+    if request.method == 'DELETE':
+        remove_customer(customer_id)
+        response_object['message'] = 'Customer deleted!'
+    return jsonify(response_object)
+
+@app.route('/businesses', methods=['GET', 'POST', 'PUT', 'DELETE'])
 def all_businesses():
     response_object = {'status': 'success'}
     if request.method == 'POST':
         post_data = request.get_json()
-        BUSINESS.append({
+        BUSINESSES.append({
             'businessname': post_data.get('businessname'),
             'duns': post_data.get('duns'),
             'street': post_data.get('street'),
@@ -202,10 +88,10 @@ def all_businesses():
         })
         response_object['message'] = 'Business added!'
     else:
-        response_object['businesses'] = BUSINESS
+        response_object['businesses'] = BUSINESSES
     return jsonify(response_object)
 
-@app.route('/products', methods=['GET', 'POST', 'DELETE'])
+@app.route('/products', methods=['GET', 'POST', 'PUT', 'DELETE'])
 def all_products():
     response_object = {'status': 'success'}
     if request.method == 'POST':
@@ -228,7 +114,8 @@ def all_products():
         response_object['products'] = PRODUCTS
     return jsonify(response_object)
 
-@app.route('/orders', methods=['GET'])
+
+@app.route('/api/v1.0/orders', methods=['GET', 'POST', 'PUT', 'DELETE'])
 def all_orders():
     response_object = {'status': 'success'}
     if request.method == 'POST':
@@ -251,6 +138,10 @@ def all_orders():
     else:
         response_object['orders'] = ORDERS
     return jsonify(response_object)
+
+@app.route('/')
+def index():
+    return "Home"
 
 if __name__ == '__main__':
     app.run()
