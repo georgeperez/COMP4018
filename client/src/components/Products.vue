@@ -10,7 +10,7 @@
         v-b-modal.product-modal>Add Product</button>
         <br>
         <br>
-        <table class="table table-hover">
+        <table class="table table-hover responsive">
           <thead>
             <tr>
               <th scope="col">Product ID</th>
@@ -186,7 +186,7 @@ export default {
   },
   methods: {
     getProducts() {
-      const path = 'http://157.230.91.175:5000/products';
+      const path = 'http://157.230.91.175:5000/api/v1.0/products';
       axios.get(path)
         .then((res) => {
           this.products = res.data.products;
@@ -197,7 +197,7 @@ export default {
         });
     },
     addProduct(payload) {
-      const path = 'http://157.230.91.175:5000/products';
+      const path = 'http://157.230.91.175:5000/api/v1.0/products';
       axios.post(path, payload)
         .then(() => {
           this.getProducts();
