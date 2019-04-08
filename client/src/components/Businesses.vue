@@ -155,7 +155,7 @@ export default {
   },
   methods: {
     getBusinesses() {
-      const path = 'http://157.230.91.175:5000/businesses';
+      const path = 'http://157.230.91.175:5000/api/v1.0/businesses';
       axios.get(path)
         .then((res) => {
           this.businesses = res.data.businesses;
@@ -166,7 +166,7 @@ export default {
         });
     },
     addBusiness(payload) {
-      const path = 'http://157.230.91.175:5000/businesses';
+      const path = 'http://157.230.91.175:5000/api/v1.0/businesses';
       axios.post(path, payload)
         .then(() => {
           this.getBusinesses();
