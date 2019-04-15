@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, make_response
+from flask import Flask, jsonify, request, make_response, render_template
 from flask_cors import CORS
 from flask_restful import reqparse
 import uuid
@@ -161,7 +161,7 @@ def all_products():
     return jsonify(response_object)
 
 @app.route('/products/<product_id>', methods=['PUT', 'DELETE'])
-def update_business():
+def update_product():
     response_object = {'status': 'success'}
     if request.method == 'PUT':
         post_data = request.get_json()
@@ -210,7 +210,7 @@ def all_orders():
     return jsonify(response_object)
 
 @app.route('/orders/<order_id>', methods=['PUT', 'DELETE'])
-def update_business():
+def update_order():
     response_object = {'status': 'success'}
     if request.method == 'PUT':
         post_data = request.get_json()
