@@ -17,6 +17,7 @@
               <th scope="col">First Name</th>
               <th scope="col">Last Name</th>
               <th scope="col">Street</th>
+              <th scope="col">City</th>
               <th scope="col">State</th>
               <th scope="col">ZIP Code</th>
               <th scope="col">Telephone</th>
