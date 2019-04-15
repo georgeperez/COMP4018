@@ -131,6 +131,95 @@
         <b-button type="reset" variant="danger">Reset</b-button>
       </b-form>
     </b-modal>
+    <b-modal ref="editBusinessModal" id="business-update-modal" title="Update a new business" hide-footer>
+      <b-form @submit="onSubmitUpdate" @reset="onResetUpdate" class="w-100">
+        <b-form-group id="form-businessname-edit-group" label="Name:"
+        label-for="form-businessname-edit-input">
+          <b-form-input
+            id="form-businessname-edit-input"
+            type="text"
+            v-model="editForm.businessname"
+            required
+            placeholder="Enter name"
+          ></b-form-input>
+        </b-form-group>
+        <b-form-group id="form-duns-edit-group" label="DUNS:" label-for="form-duns-edit-input">
+          <b-form-input
+            id="form-duns-input"
+            type="text"
+            v-model="editForm.duns"
+            required
+            placeholder="Enter DUNS"
+          ></b-form-input>
+        </b-form-group>
+        <b-form-group id="form-street-edit-group" label="Street:" label-for="form-street-edit-input">
+          <b-form-input
+            id="form-street-edit-input"
+            type="text"
+            v-model="editForm.street"
+            required
+            placeholder="Enter street"
+          ></b-form-input>
+        </b-form-group>
+        <b-form-group id="form-city-edit-group" label="City:" label-for="form-city-edit-input">
+          <b-form-input
+            id="form-city-edit-input"
+            type="text"
+            v-model="editForm.city"
+            required
+            placeholder="Enter city"
+          ></b-form-input>
+        </b-form-group>
+        <b-form-group id="form-state-edit-group" label="State:" label-for="form-state-edit-input">
+          <b-form-input
+            id="form-state-edit-input"
+            type="text"
+            v-model="editForm.state"
+            required
+            placeholder="Enter state"
+          ></b-form-input>
+        </b-form-group>
+        <b-form-group id="form-zipcode-edit-group" label="ZIP Code:" label-for="form-zipcode-edit-input">
+          <b-form-input
+            id="form-zipcode-edit-input"
+            type="text"
+            v-model="editForm.zipcode"
+            required
+            placeholder="Enter ZIP code"
+          ></b-form-input>
+        </b-form-group>
+        <b-form-group id="form-telephone-edit-group" label="Telephone:" label-for="form-telephone-edit-input">
+          <b-form-input
+            id="form-telephone-edit-input"
+            type="text"
+            v-model="editForm.telephone"
+            required
+            placeholder="Enter telephone"
+          ></b-form-input>
+        </b-form-group>
+        <b-form-group id="form-type-edit-group" label="Type:" label-for="form-type-edit-input">
+          <b-form-input
+            id="form-type-edit-input"
+            type="text"
+            v-model="editForm.type"
+            required
+            placeholder="Enter business type"
+          ></b-form-input>
+        </b-form-group>
+        <b-form-group id="form-numbercustomers-edit-group" label="Number customers:"
+        label-for="form-numbercustomers-edit-input">
+          <b-form-input
+            id="form-numbercustomers-edit-input"
+            type="text"
+            v-model="editForm.numbercustomers"
+            required
+            placeholder="Enter number of customers"
+          ></b-form-input>
+        </b-form-group>
+        <b-button type="submit" variant="primary">Update</b-button>
+        <b-button type="reset" variant="danger">Reset</b-button>
+      </b-form>
+    </b-modal>
   </div>
 </template>
 
@@ -155,7 +244,7 @@ export default {
   },
   methods: {
     getBusinesses() {
-      const path = 'http://157.230.91.175:5000/api/v1.0/businesses';
+      const path = 'http://localhost:5000/businesses';
       axios.get(path)
         .then((res) => {
           this.businesses = res.data.businesses;
@@ -166,8 +255,35 @@ export default {
         });
     },
     addBusiness(payload) {
-      const path = 'http://157.230.91.175:5000/api/v1.0/businesses';
+      const path = 'http://localhost:5000/businesses';
       axios.post(path, payload)
+        .then(() => {
+          this.getBusinesses();
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.log(error);
+          this.getBusinesses();
+        });
+    },
+    updateBusiness(payload, customerID) {
+      const path = 'http://localhost:5000/businesses/${customerID}';
+      axios.put(path, payload)
+        .then(() => {
+          this.getBusinesses();
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.log(error);
+          this.getBusinesses();
+        });
+    },
+    editBusiness(business) {
+      this.editForm = business;
+    },
+    removeBusiness(businessID) {
+      const path = 'http://localhost:5000/businesses/${businessID}';
+      axios.delete(path)
         .then(() => {
           this.getBusinesses();
         })
@@ -187,6 +303,15 @@ export default {
       this.addBusinessForm.telephone = '';
       this.addBusinessForm.type = '';
       this.addBusinessForm.numbercustomers = '';
+      this.editForm.businessname = '';
+      this.editForm.duns = '';
+      this.editForm.street = '';
+      this.editForm.city = '';
+      this.editForm.state = '';
+      this.editForm.zipcode = '';
+      this.editForm.telephone = '';
+      this.editForm.type = '';
+      this.editForm.numbercustomers = '';
     },
     onSubmit(evt) {
       evt.preventDefault();
@@ -205,10 +330,36 @@ export default {
       this.addBusiness(payload);
       this.initForm();
     },
+    onSubmitUpdate(evt) {
+      evt.preventDefault();
+      this.$refs.updateBusinessModal.hide();
+      const payload = {
+        businessname: this.editForm.businessname,
+        duns: this.editForm.duns,
+        street: this.editForm.street,
+        city: this.editForm.city,
+        state: this.editForm.state,
+        zipcode: this.editForm.zipcode,
+        telephone: this.editForm.telephone,
+        type: this.editForm.type,
+        numbercustomers: this.editForm.numbercustomers,
+      };
+      this.updateBusiness(payload, this.editForm.businessid)
+      this.initForm();
+    },
     onReset(evt) {
       evt.preventDefault();
       this.$refs.addBusinessModal.hide();
       this.initForm();
+    },
+    onResetUpdate(evt) {
+      evt.preventDefault();
+      this.$refs.editBusinessModal.hide();
+      this.initForm();
+      this.getBusinesses();
+    },
+    onDeleteBusiness(business) {
+      this.removeBusiness(business.businessid);
     },
   },
   created() {
