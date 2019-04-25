@@ -196,7 +196,7 @@ export default {
   },
   methods: {
     getOrders() {
-      const path = 'http://157.230.91.175:5000/api/v1.0/orders';
+      const path = 'http://localhost:5000/orders';
       axios.get(path)
         .then((res) => {
           this.orders = res.data.orders;
@@ -207,7 +207,7 @@ export default {
         });
     },
     addOrder(payload) {
-      const path = 'http://157.230.91.175:5000/api/v1.0/orders';
+      const path = 'http://localhost:5000/orders';
       axios.post(path, payload)
         .then(() => {
           this.getOrders();

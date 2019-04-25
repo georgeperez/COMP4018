@@ -186,7 +186,7 @@ export default {
   },
   methods: {
     getProducts() {
-      const path = 'http://157.230.91.175:5000/api/v1.0/products';
+      const path = 'http://localhost:5000/products';
       axios.get(path)
         .then((res) => {
           this.products = res.data.products;
@@ -197,7 +197,7 @@ export default {
         });
     },
     addProduct(payload) {
-      const path = 'http://157.230.91.175:5000/api/v1.0/products';
+      const path = 'http://localhost:5000/products';
       axios.post(path, payload)
         .then(() => {
           this.getProducts();
@@ -219,6 +219,16 @@ export default {
       this.addProductForm.sku = '';
       this.addProductForm.buyprice = '';
       this.addProductForm.msrp = '';
+      this.editForm.productid = '';
+      this.editForm.productlabel = '';
+      this.editForm.productcategory = '';
+      this.editForm.quantity = '';
+      this.editForm.businessname = '';
+      this.editForm.modelnumber = '';
+      this.editForm.serialnumber = '';
+      this.editForm.sku = '';
+      this.editForm.buyprice = '';
+      this.editForm.msrp = '';
     },
     onSubmit(evt) {
       evt.preventDefault();
@@ -234,6 +244,24 @@ export default {
         sku: this.addProductForm.sku,
         buyprice: this.addProductForm.buyprice,
         msrp: this.addProductForm.msrp,
+      };
+      this.addProduct(payload);
+      this.initForm();
+    },
+    onSubmitUpdate(evt) {
+      evt.preventDefault();
+      this.$refs.editProductModal.hide();
+      const payload = {
+        productid: this.editForm.productid,
+        productlabel: this.editForm.productlabel,
+        productcategory: this.editForm.productcategory,
+        quantity: this.editForm.quantity,
+        businessname: this.editForm.businessname,
+        modelnumber: this.editForm.modelnumber,
+        serialnumber: this.editForm.serialnumber,
+        sku: this.editForm.sku,
+        buyprice: this.editForm.buyprice,
+        msrp: this.editForm.msrp,
       };
       this.addProduct(payload);
       this.initForm();
