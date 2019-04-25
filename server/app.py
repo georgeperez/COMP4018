@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request, make_response, render_template
 from flask_cors import CORS
 from flask_restful import reqparse
+from flask_mysqldb import MySQL
 import uuid
 
 DEBUG = True
@@ -16,34 +17,6 @@ BUSINESSES = []
 PRODUCTS = []
 
 ORDERS = []
-
-def remove_customer(customer_id):
-    for customer in CUSTOMERS:
-        if customer['customerid'] == customer_id:
-            CUSTOMERS.remove(customer)
-            return True
-    return False
-
-def remove_business(business_id):
-    for business in BUSINESSES:
-        if business['businessid'] == business_id:
-            BUSINESSES.remove(business)
-            return True
-    return False
-
-def remove_product(product_id):
-    for product in PRODUCTS:
-        if product['productid'] == product_id:
-            PRODUCTS.remove(product)
-            return True
-    return False
-
-def remove_order(order_id):
-    for order in ORDERS:
-        if order['orderid'] == order_id:
-            ORDERS.remove(order)
-            return True
-    return False
 
 @app.errorhandler(404)
 def not_found(error):
@@ -68,6 +41,7 @@ def all_customers():
     else:
         response_object['customers'] = CUSTOMERS
     return jsonify(response_object)
+
 
 @app.route('/customers/<customer_id>', methods=['PUT', 'DELETE'])
 def update_customer():
@@ -185,7 +159,7 @@ def update_product():
         response_object['message'] = 'Product deleted!'
     return jsonify(response_object)
 
-@app.route('/orders', methods=['GET', 'POST', 'PUT', 'DELETE'])
+@app.route('/orders', methods=['GET', 'POST'])
 def all_orders():
     response_object = {'status': 'success'}
     if request.method == 'POST':
@@ -238,6 +212,34 @@ def update_order():
 @app.route('/')
 def index():
     return "Home"
+
+def remove_customer(customer_id):
+    for customer in CUSTOMERS:
+        if customer['customerid'] == customer_id:
+            CUSTOMERS.remove(customer)
+            return True
+    return False
+
+def remove_business(business_id):
+    for business in BUSINESSES:
+        if business['businessid'] == business_id:
+            BUSINESSES.remove(business)
+            return True
+    return False
+
+def remove_product(product_id):
+    for product in PRODUCTS:
+        if product['productid'] == product_id:
+            PRODUCTS.remove(product)
+            return True
+    return False
+
+def remove_order(order_id):
+    for order in ORDERS:
+        if order['orderid'] == order_id:
+            ORDERS.remove(order)
+            return True
+    return False
 
 if __name__ == '__main__':
     app.run()
