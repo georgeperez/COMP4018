@@ -1,5 +1,15 @@
 <template>
   <div class="container">
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav>
+        <b-nav-item href="/customers">Customers</b-nav-item>
+        <b-nav-item href="/businesses">Businesses</b-nav-item>
+        <b-nav-item href="/products">Products</b-nav-item>
+        <b-nav-item href="/orders">Orders</b-nav-item>
+      </b-navbar-nav>
+    </b-collapse>
     <div class="row">
       <div class="col-sm-10">
         <h1>Orders</h1>
