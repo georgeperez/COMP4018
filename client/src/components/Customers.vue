@@ -1,5 +1,15 @@
 <template>
   <div class="container">
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav>
+        <b-nav-item href="/customers">Customers</b-nav-item>
+        <b-nav-item href="/businesses">Businesses</b-nav-item>
+        <b-nav-item href="/products">Products</b-nav-item>
+        <b-nav-item href="/orders">Orders</b-nav-item>
+      </b-navbar-nav>
+    </b-collapse>
     <div class="row">
       <div class="col-sm-10">
         <h1>Customers</h1>
@@ -112,10 +122,7 @@
         <b-button type="reset" variant="danger">Reset</b-button>
       </b-form>
     </b-modal>
-    <b-modal ref="editCustomerModal"
-    id="customer-update-modal"
-    title="Update"
-    hide-footer>
+    <b-modal ref="editCustomerModal" id="customer-update-modal" title="Update" hide-footer>
     <b-form @submit="onSubmitUpdate" @reset="onResetUpdate" class="w-100">
       <b-form-group id="form-firstname-edit-group" label="First Name:"
       label-for="form-firstname-edit-input">
@@ -241,7 +248,7 @@ export default {
         });
     },
     updateCustomer(payload, customerID) {
-      const path = 'http://localhost:5000/customers/${customerID}';
+      const path = `http://localhost:5000/customers/${customerID}`;
       axios.put(path, payload)
         .then(() => {
           this.getCustomers();
@@ -256,7 +263,7 @@ export default {
       this.editForm = customer;
     },
     removeCustomer(customerID) {
-      const path = 'http://localhost:5000/customers/${customerID}';
+      const path = `http://localhost:5000/customers/${customerID}`;
       axios.delete(path)
         .then(() => {
           this.getCustomers();
@@ -275,6 +282,7 @@ export default {
       this.addCustomerForm.state = '';
       this.addCustomerForm.zipcode = '';
       this.addCustomerForm.telephone = '';
+      this.editForm.customerid = '';
       this.editForm.firstname = '';
       this.editForm.lastname = '';
       this.editForm.street = '';

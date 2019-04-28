@@ -4,16 +4,20 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+flask = "*"
+flask-cors = "*"
+flask-restful = "*"
+cryptography = "*"
+flask_mysqldb = "*"
+gunicorn = "*"
 
 [packages]
 flask = "*"
 flask-cors = "*"
 flask-restful = "*"
 cryptography = "*"
-flask-mysql = "*"
-pymysql = "*"
-mysql-python = "*"
-mysql-connector-python = "*"
+flask_mysqldb = "*"
+gunicorn = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"
