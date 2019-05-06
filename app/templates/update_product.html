@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "partials/head.html" %}
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">MambaDB</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/customers">Customers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/businesses">Businesses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/orders">Orders</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <h3>Update product</h3>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div align="center">
+            <a role="button" class="btn btn-dark btn-sm" href="/products/update/productlabel">Product Label</a>
+            <a role="button" class="btn btn-dark btn-sm" href="/products/update/productcategory">Product Category</a>
+            <a role="button" class="btn btn-dark btn-sm" href="/products/update/quantity">Quantity</a>
+            <a role="button" class="btn btn-dark btn-sm" href="/products/update/businessid">Business ID</a>
+            <a role="button" class="btn btn-dark btn-sm" href="/products/update/manufacturer">Manufacturer</a>
+            <a role="button" class="btn btn-dark btn-sm" href="/products/update/modelnumber">Model Number</a>
+            <a role="button" class="btn btn-dark btn-sm" href="/products/update/serialnumber">Serial Number</a>
+            <a role="button" class="btn btn-dark btn-sm" href="/products/update/sku">SKU</a>
+            <a role="button" class="btn btn-dark btn-sm" href="/products/update/buyprice">Buy Price</a>
+            <a role="button" class="btn btn-dark btn-sm" href="/products/update/msrp">MSRP</a>
+        </div>
+    </div>
+    {% include "partials/bootstrap-js.html" %}
+</body>
+
+</html>

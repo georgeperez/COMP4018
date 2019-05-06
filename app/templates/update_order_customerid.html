@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "partials/head.html" %}
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">MambaDB</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/customers">Customers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/businesses">Businesses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/orders">Orders</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <h3>Update order customer ID</h3>
+        <form method="POST" action="">
+            <div class="form-group">
+                <label for="ordernumber">Order Number</label>
+                <input type="text" class="form-control" name="ordernumber" placeholder="Order Number">
+            </div>
+            <div class="form-group">
+                <label for="customerid">Customer ID</label>
+                <input type="text" class="form-control" name="customerid" placeholder="Customer ID">
+            </div>
+            <button type="submit" class="btn btn-dark btn-sm" role="button">Submit</button>
+        </form>
+    </div>
+    {% include "partials/bootstrap-js.html" %}
+</body>
+
+</html>
