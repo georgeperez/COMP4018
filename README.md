@@ -8,7 +8,7 @@ The project manager is George P&eacute;rez Marrero.
 
 ## Sprint 5 Documents
 
-* Finished Project
+* [Finished Project Progression](https://github.com/orgs/mambadb/projects)
 
 ## Sprint 4 Documents
 
