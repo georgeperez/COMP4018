@@ -6,6 +6,10 @@ This project is being developed by George P&eacute;rez Marrero and Carlos L. Mal
 
 The project manager is George P&eacute;rez Marrero.
 
+## Sprint 5 Documents
+
+* Finished Project
+
 ## Sprint 4 Documents
 
 * [Master Development Plan](/documents/sprint-4/master-development-plan.md)
